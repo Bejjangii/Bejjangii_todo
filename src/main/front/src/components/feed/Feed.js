@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Header from './Header';
 
-const Feed = () => {
+const Feed = ({ selectedDate }) => {
 
 	const items = ['to do a','to do b','to do c','to do d'];
 	// items.forEach(element => {
@@ -10,7 +10,7 @@ const Feed = () => {
 
 	return (
 		<Feeds>
-			<Header/>
+			<Header selectedDate={selectedDate} />
 			{items.map((value) => (
 				<p> {value} </p>
 			))}
