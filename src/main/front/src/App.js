@@ -17,8 +17,8 @@ function App() {
 
     return (
         <div>
-            {/* <HomeTemplate /> */}
-            백엔드에서 가져온 데이터입니다 : {data}
+            <HomeTemplate />
+            {/* 백엔드에서 가져온 데이터입니다 : {data} */}
         </div>
     );
 }

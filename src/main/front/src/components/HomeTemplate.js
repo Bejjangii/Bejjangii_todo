@@ -1,11 +1,21 @@
 import Feed from './feed/Feed';
+import React, { useState } from 'react';
+import Calendar from './calendar/Calendar';
 import styled from "styled-components";
 
 const HomeTemplate = () => {
+
+	const [selectedDate, setSelectedDate] = useState(new Date());
+
+  const handleDateChange = (value) => {
+    setSelectedDate(value);
+  };
+
 	return (
 		<Wrapper>
 			<Main>
-				<Feed />
+				<Calendar onChange={handleDateChange} />
+				<Feed selectedDate={selectedDate} />
 			</Main>
 		</Wrapper>
 	);
@@ -21,9 +31,9 @@ const Wrapper = styled.div`
 `;
 
 const Main = styled.div`
-	display: grid;
-	grid-template-columns: 346px auto;
+	display: flex;
+	flex-wrap: wrap;
+	// grid-template-columns: 346px auto;
 	grid-gap: 60px;
 	width: 100%;
-	padding: 0 48px;
 `;

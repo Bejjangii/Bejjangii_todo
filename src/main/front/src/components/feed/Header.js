@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import moment from 'moment';
 
-const Header = () => {
+const Header = ({ selectedDate }) => {
+
 	return (
 		<FeedHead>
-			<h1>2023년 2월 22일</h1>
-			<div className="day">수요일</div>
+			<h1>{moment(selectedDate).format("YYYY년 MM월 DD일")} </h1>
 		</FeedHead>
 	);
 };
