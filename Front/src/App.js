@@ -1,6 +1,11 @@
-import HomeTemplate from './components/HomeTemplate';
-import React, { useEffect, useState } from 'react';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
+import HomeTemplate from './components/HomeTemplate';
+import Login from './components/login/login';
+import Join from './components/join';
+import Home from './components/Home';
+import NotFound from './components/NotFound';
+import React, { useEffect, useState } from 'react';
 
 function App() {
     const [data, setData] = useState('');
@@ -16,10 +21,16 @@ function App() {
     }, []);
 
     return (
-        <div>
-            <HomeTemplate />
-            {/* 백엔드에서 가져온 데이터입니다 : {data} */}
-        </div>
+        <Router>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/HomeTemplate" element={<HomeTemplate />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/join" element={<Join />} />
+                {/* 다른 주소를 입력했을 경우 */}
+                <Route path="*" element={<NotFound />} />
+            </Routes>
+        </Router>
     );
 }
 
